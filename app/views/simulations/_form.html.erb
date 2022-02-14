@@ -1,0 +1,41 @@
+<%= form_with(model: simulation, local: true) do |form| %>
+<% if simulation.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(simulation.errors.count, "error") %> prohibited this simulation from being saved:</h2>
+
+  <ul>
+    <% simulation.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%#=<div class="field">
+  <%#= form.label :diagnose_id %>
+<%#= form.number_field :diagnose_id %>
+<%#=</div>
+
+<%#=<div class="field">
+  <%#= form.label :severities %>
+<%#= form.number_field :severities %>
+<%#=</div>
+
+<div class="field">
+  <%= form.label :content %>
+<%#= form.text_field :content %>
+<%#=</div>%>
+
+<div>
+  <%= form.collection_select(:diagnose_id, Diagnose.all, :id, :name,{include_blank: "---"} ) %>
+</div>
+
+<div>
+  <%= form.collection_select(:severitie_id, Severitie.all, :id, :name,{include_blank: "---"} ) %>
+</div>
+
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>

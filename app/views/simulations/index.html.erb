@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Simulations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>診断</th>
+      <th>重症度</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @simulations.each do |simulation| %>
+    <tr>
+      <td><%= simulation.diagnose_id %></td>
+      <td><%= simulation.severitie_id %></td>
+      <td><%= simulation.content %></td>
+      <td><%= link_to 'Show', simulation %></td>
+      <td><%= link_to 'Edit', edit_simulation_path(simulation) %></td>
+      <td><%= link_to 'Destroy', simulation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Simulation', new_simulation_path %>

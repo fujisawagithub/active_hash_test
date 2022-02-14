@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>診断:</strong>
+  <%= @simulation.diagnose_id %>
+</p>
+
+<p>
+  <strong>重症度:</strong>
+  <%= @simulation.severitie_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @simulation.content %>
+</p>
+
+<% if @simulation.diagnose_id == 1 &&   @simulation.severitie_id == 1 %>
+<%= "1000円" %>
+<% end %>
+
+<%= link_to 'Edit', edit_simulation_path(@simulation) %> |
+<%= link_to 'Back', simulations_path %>
